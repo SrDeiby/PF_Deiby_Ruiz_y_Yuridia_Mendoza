@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Banco_f96da168"
+        },
+        {
+            "type": "java",
+            "request": "launch",
+            "name": "Launch Java App"
+        }
+    ]
+}
