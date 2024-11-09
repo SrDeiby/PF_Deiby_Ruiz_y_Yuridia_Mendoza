@@ -1,7 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Gui gui = new Gui();
-        gui.setVisible(true);
+        Login login = new Login();
+        login.setVisible(true);
     }
 }
 

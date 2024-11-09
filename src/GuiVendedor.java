@@ -21,7 +21,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Gui extends JFrame {
+public class GuiVendedor extends JFrame {
 
     static int monto;
     private JLabel LabelImagen1;
@@ -29,7 +29,7 @@ public class Gui extends JFrame {
     private Icon icono;
     private ImageIcon imagen;
 
-    public Gui() {
+    public GuiVendedor() {
         setLayout(null);
         setBounds(0, 0, 800, 550);
         setLocationRelativeTo(null);

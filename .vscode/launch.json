@@ -5,6 +5,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
+            "projectName": "PF_Deiby_Ruiz_y_Yuridia_Mendoza_d327fe92"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
             "projectName": "Banco_f96da168"
         },
         {
