@@ -43,7 +43,7 @@ public class GuiVendedor extends JFrame {
 
         LabelImagen1 = new JLabel();// 
         LabelImagen1.setBounds(0, 70, 400, 380);
-        this.Pintar(this.LabelImagen1, "C:\\Users\\deiby\\OneDrive\\Practicas vacaciones\\Banco\\Fondo.png");
+        this.Pintar(this.LabelImagen1, "Imagenes\\Fondo.png");
         MainPanel.add(LabelImagen1);
 
         JPanel PanelArriba = new JPanel();
@@ -58,6 +58,16 @@ public class GuiVendedor extends JFrame {
         getContentPane();
         PanelAgregar.setLayout(null);
         PanelAgregar.setBackground(new Color(255, 255, 255));
+
+        JPanel PanelEliminar = new JPanel();
+        getContentPane();
+        PanelEliminar.setLayout(null);
+        PanelEliminar.setBackground(new Color(255, 255, 255));
+
+        JPanel PanelActualizar = new JPanel();
+        getContentPane();
+        PanelActualizar.setLayout(null);
+        PanelActualizar.setBackground(new Color(255, 255, 255));
 
         JPanel PanelArriba2 = new JPanel();
         PanelArriba2.setBounds(0, 0, 800, 60);
@@ -99,10 +109,10 @@ public class GuiVendedor extends JFrame {
                 try {
 
                     conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root",
+                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", "root",
                             "Deiby_R04");
                     conexion.setAutoCommit(true);
-                    String Mostrar = "{CALL lista_personas}";
+                    String Mostrar = "{CALL mostrar_vendedores}";
                     ptm = conexion.prepareStatement(Mostrar);
                     result = ptm.executeQuery();
 
@@ -127,7 +137,7 @@ public class GuiVendedor extends JFrame {
                     JScrollPane scrollPane = new JScrollPane(table);
 
                     // Mostrar la tabla en un JOptionPane
-                    JOptionPane.showMessageDialog(null, scrollPane, "Base de datos Banco",
+                    JOptionPane.showMessageDialog(null, scrollPane, "Base de datos de mi tienda",
                             JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (SQLException e1) {
@@ -150,149 +160,7 @@ public class GuiVendedor extends JFrame {
             }
         });
 
-        JButton Retiro = new JButton("Retiro");
-        Retiro.setBounds(580, 260, 150, 40);
-        Retiro.setBackground(new Color(36, 186, 227));
-        Retiro.setForeground(Color.white);
-        Retiro.setFocusPainted(false);
-        Retiro.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String id = JOptionPane.showInputDialog("Digite el id de la persona");
-
-                Connection conectar = null;
-                PreparedStatement prepararprimera = null;
-                PreparedStatement prepararsegunda = null;
-                ResultSet Obtener = null;
-
-                try {
-                    conectar = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root","Deiby_R04");
-                    conectar.setAutoCommit(true);
-                    String SQL = "SELECT Monto from personas WHERE Id = ?";
-                    prepararprimera = conectar.prepareStatement(SQL);
-                    prepararprimera.setString(1, id);
-
-                    Obtener = prepararprimera.executeQuery();
-
-                    int monto = 0;
-                    if (Obtener.next()) {
-                        monto = Obtener.getInt("Monto");
-                    }
-
-                    String montore = JOptionPane.showInputDialog("Digite la cantidad de monto a retirar");
-                    int MontoRetiro = Integer.parseInt(montore);
-
-                    if (MontoRetiro <= monto) {
-                        Total = 0;
-                        Total = monto - MontoRetiro;
-                        String indicacion = "UPDATE personas SET Monto = ? WHERE Id = ?";
-
-                        prepararsegunda = conectar.prepareStatement(indicacion);
-                        prepararsegunda.setInt(1, Total);
-                        prepararsegunda.setString(2, id);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "El monto a retirar excede el monto que tiene la persona");
-                    }
-
-                    int exito = prepararsegunda.executeUpdate();
-                    if (exito > 0) {
-                        JOptionPane.showMessageDialog(null, "Retiro realizado con exito \nNuevo saldo: " + Total);
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "No se encontró ninguna persona con el número de Id especificado.");
-                    }
-                } catch (SQLException sqle) {
-                    sqle.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos: " + sqle.getMessage());
-                } finally {
-                    try {
-                        if (Obtener != null)
-                            Obtener.close();
-                        if (prepararsegunda != null)
-                            prepararsegunda.close();
-                        if (prepararprimera != null)
-                            prepararprimera.close();
-                        if (conectar != null)
-                            conectar.close();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-
-            }
-        });
-
-        JButton Deposito = new JButton("Deposito");
-        Deposito.setBounds(580, 320, 150, 40);
-        Deposito.setBackground(new Color(36, 186, 227));
-        Deposito.setForeground(Color.white);
-        Deposito.setFocusPainted(false);
-        Deposito.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String id = JOptionPane.showInputDialog("Id de la persona");
-
-                Connection conexion = null;
-                PreparedStatement preparar = null;
-                PreparedStatement ptm = null;
-                ResultSet rs = null;
-
-                try {
-                    conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root",
-                            "Deiby_R04");
-                    conexion.setAutoCommit(true);
-                    String SQL = "SELECT Monto FROM personas WHERE Id = ?";
-                    ptm = conexion.prepareStatement(SQL);
-                    ptm.setString(1, id);
-
-                    rs = ptm.executeQuery();
-
-                    int monto = 0;
-                    if (rs.next()) {
-                        monto = rs.getInt("Monto");
-                    }
-
-                    String mo = JOptionPane.showInputDialog("Monto a depositar");
-                    int MontoNuevo = Integer.parseInt(mo);
-                    Tot = 0;
-                    Tot = monto + MontoNuevo;
-
-                    String Indicacion = "UPDATE personas SET Monto = ? WHERE Id = ?";
-                    preparar = conexion.prepareStatement(Indicacion);
-                    preparar.setInt(1, Tot);
-                    preparar.setString(2, id);
-
-                    int exito = preparar.executeUpdate();
-
-                    if (exito > 0) {
-                        JOptionPane.showMessageDialog(null, "Deposito realizado con exito \nNuevo Saldo: " + Tot);
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "No se encontró ninguna persona con el número de Id especificado.");
-                    }
-                } catch (SQLException sqle) {
-                    sqle.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos: " + sqle.getMessage());
-                } finally {
-                    try {
-                        if (rs != null)
-                            rs.close();
-                        if (ptm != null)
-                            ptm.close();
-                        if (preparar != null)
-                            preparar.close();
-                        if (conexion != null)
-                            conexion.close();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-
-            }
-        });
-
+    
         JButton Eliminar = new JButton("Eliminar");
         Eliminar.setBounds(580, 380, 150, 40);
         Eliminar.setBackground(new Color(36, 186, 227));
@@ -301,170 +169,76 @@ public class GuiVendedor extends JFrame {
         Eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Connection conexion = null;
-                PreparedStatement preparar = null;
 
-                String Id = JOptionPane.showInputDialog("Id de la persona a eliminar");
-                try {
-                    conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root",
-                            "Deiby_R04");
-                    conexion.setAutoCommit(true);
-                    String Sentencia = "{CALL eliminar_persona(?)}";
-                    preparar = conexion.prepareStatement(Sentencia);
-                    preparar.setString(1, Id);
+                MainPanel.setVisible(false);
+                PanelEliminar.setVisible(true);
+                setContentPane(PanelEliminar);
 
-                    int exito = preparar.executeUpdate();
-                    if (exito > 0) {
-                        JOptionPane.showMessageDialog(null, "La persona se elimino con exito del banco");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se encuentra persona con ese Id");
-                    }
-
-                } catch (SQLException e1) {
-
-                    e1.printStackTrace();
-                } finally {
-                    {
-                        try {
-                            if (conexion != null)
-                                conexion.close();
-                            if (preparar != null)
-                                preparar.close();
-
-                        } catch (SQLException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }
-
-            }
+            }     
         });
 
         JButton Actualizar = new JButton("Actualizar");
-        Actualizar.setBounds(400, 380, 150, 40);
+        Actualizar.setBounds(580, 300, 150, 40);
         Actualizar.setBackground(new Color(36, 186, 227));
         Actualizar.setForeground(Color.white);
         Actualizar.setFocusPainted(false);
         Actualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Connection conexion = null;
-                PreparedStatement preparar = null;
-
-                String Id = JOptionPane.showInputDialog("Id de la persona a actualizar");
-                String NuevoNombre = JOptionPane.showInputDialog("Nuevo nombre de la persona");
-                try {
-                    conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root",
-                            "Deiby_R04");
-                    conexion.setAutoCommit(true);
-                    String Sentencia = "{CALL actualizar_nombre(?,?)}";
-                    preparar = conexion.prepareStatement(Sentencia);
-                    preparar.setString(1, Id);
-                    preparar.setString(2, NuevoNombre);
-
-                    int exito = preparar.executeUpdate();
-                    if (exito > 0) {
-                        JOptionPane.showMessageDialog(null, "La persona se ha actualizado con exito del banco");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se encuentra persona con ese Id");
-                    }
-
-                } catch (SQLException e1) {
-
-                    e1.printStackTrace();
-                } finally {
-                    {
-                        try {
-                            if (conexion != null)
-                                conexion.close();
-                            if (preparar != null)
-                                preparar.close();
-
-                        } catch (SQLException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }
-
+                MainPanel.setVisible(false);
+                PanelActualizar.setVisible(true);
+                setContentPane(PanelActualizar);    
             }
         });
 
         // Componentes del PanelAgregar
         JLabel Nombre = new JLabel("Nombre");
-        Nombre.setBounds(50, 100, 100, 40);
+        Nombre.setBounds(50, 120, 100, 40);
         Nombre.setForeground(Color.black);
         Nombre.setBorder(null);
-        Font fuente = new Font("Agency FB", Font.BOLD, 15);
+        Font fuente = new Font("Agency FB", Font.BOLD, 16);
         Nombre.setFont(fuente);
         PanelAgregar.add(Nombre);
 
         JLabel Apellido1 = new JLabel("Primer apellido");
-        Apellido1.setBounds(50, 140, 100, 40);
+        Apellido1.setBounds(50, 180, 100, 40);
         Apellido1.setForeground(Color.black);
         Apellido1.setFont(fuente);
         Apellido1.setBorder(null);
         PanelAgregar.add(Apellido1);
 
-        JLabel Apellido2 = new JLabel("Segundo apellido");
-        Apellido2.setBounds(50, 180, 100, 40);
-        Apellido2.setForeground(Color.black);
-        Apellido2.setFont(fuente);
-        Apellido2.setBorder(null);
-        PanelAgregar.add(Apellido2);
-
-        JLabel ID = new JLabel("ID");
-        ID.setBounds(50, 220, 100, 40);
+        JLabel ID = new JLabel("Cedula");
+        ID.setBounds(50, 240, 100, 40);
         ID.setForeground(Color.black);
         ID.setFont(fuente);
         ID.setBorder(null);
         PanelAgregar.add(ID);
-
-        JLabel Monto = new JLabel("Monto");
-        Monto.setBounds(50, 260, 100, 40);
-        Monto.setForeground(Color.black);
-        Monto.setFont(fuente);
-        Monto.setBorder(null);
-        PanelAgregar.add(Monto);
-
+    
         JTextField TextNombre = new JTextField("");
-        TextNombre.setBounds(200, 100, 130, 30);
+        TextNombre.setBounds(200, 120, 130, 40);
         TextNombre.setBackground(new Color(101, 237, 225));
         TextNombre.setForeground(Color.black);
         TextNombre.setBorder(null);
         PanelAgregar.add(TextNombre);
 
         JTextField TextApellido = new JTextField("");
-        TextApellido.setBounds(200, 140, 130, 30);
+        TextApellido.setBounds(200, 180, 130, 40);
         TextApellido.setBackground(new Color(101, 237, 225));
         TextApellido.setForeground(Color.black);
         TextApellido.setBorder(null);
         PanelAgregar.add(TextApellido);
 
-        JTextField TextApellido2 = new JTextField("");
-        TextApellido2.setBounds(200, 180, 130, 30);
-        TextApellido2.setBackground(new Color(101, 237, 225));
-        TextApellido2.setForeground(Color.black);
-        TextApellido2.setBorder(null);
-        PanelAgregar.add(TextApellido2);
 
         JTextField TextID = new JTextField("");
-        TextID.setBounds(200, 220, 130, 30);
+        TextID.setBounds(200, 240, 130, 40);
         TextID.setBackground(new Color(101, 237, 225));
         TextID.setForeground(Color.black);
         TextID.setBorder(null);
         PanelAgregar.add(TextID);
 
-        JTextField TextMonto = new JTextField("");
-        TextMonto.setBounds(200, 260, 130, 30);
-        TextMonto.setBackground(new Color(101, 237, 225));
-        TextMonto.setForeground(Color.red);
-        TextMonto.setBorder(null);
-        PanelAgregar.add(TextMonto);
 
         JButton AgregarPersona = new JButton("Agregar");
-        AgregarPersona.setBounds(150, 330, 150, 40);
+        AgregarPersona.setBounds(200, 330, 150, 40);
         AgregarPersona.setBackground(new Color(36, 186, 227));
         AgregarPersona.setForeground(Color.white);
         AgregarPersona.setFocusPainted(false);
@@ -474,29 +248,24 @@ public class GuiVendedor extends JFrame {
                 String Nombre = TextNombre.getText();
                 String Id = TextID.getText();
                 String Ap1 = TextApellido.getText();
-                String Ap2 = TextApellido2.getText();
-                String monto = TextMonto.getText();
-                int Monto = Integer.parseInt(monto);
 
                 Connection conexion = null;
                 PreparedStatement preparar = null;
 
-                String SQL = "{CALL insertar_persona(?,?,?,?,?)}";
+                String SQL = "{CALL agregar_vendedor(?,?,?)}";
 
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/banco?verifyServerCertificate=false&useSSL=true", "root",
+                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", "root",
                             "Deiby_R04");
                     conexion.setAutoCommit(true);
 
                     // Preparar la consulta
                     preparar = conexion.prepareStatement(SQL);
-                    preparar.setString(1, Nombre);
-                    preparar.setString(2, Ap1);
-                    preparar.setString(3, Ap2);
-                    preparar.setString(4, Id);
-                    preparar.setInt(5, Monto);
+                    preparar.setString(2, Nombre);
+                    preparar.setString(3, Ap1);
+                    preparar.setString(1, Id);
 
                     // Ejecutar la consulta
                     int exito = preparar.executeUpdate();
@@ -521,15 +290,13 @@ public class GuiVendedor extends JFrame {
                 }
                 TextNombre.setText("");
                 TextApellido.setText("");
-                TextApellido2.setText("");
-                TextMonto.setText("");
                 TextID.setText("");
             }
         });
         PanelAgregar.add(AgregarPersona);
 
         JButton Salir = new JButton("Salir");
-        Salir.setBounds(400, 330, 150, 40);
+        Salir.setBounds(450, 330, 150, 40);
         Salir.setBackground(new Color(36, 186, 227));
         Salir.setForeground(Color.white);
         Salir.setFocusPainted(false);
@@ -543,12 +310,214 @@ public class GuiVendedor extends JFrame {
         });
         PanelAgregar.add(Salir);
 
+        // Componentes del Actualizar
+        JLabel NombreNuevo = new JLabel("Nombre nuevo");
+        NombreNuevo.setBounds(50, 180, 100, 40);
+        NombreNuevo.setForeground(Color.black);
+        NombreNuevo.setBorder(null);
+        NombreNuevo.setFont(fuente);
+        PanelActualizar.add(NombreNuevo);
+
+        JLabel ApellidoNuevo = new JLabel("Apellido Nuevo");
+        ApellidoNuevo.setBounds(50, 240, 100, 40);
+        ApellidoNuevo.setForeground(Color.black);
+        ApellidoNuevo.setFont(fuente);
+        ApellidoNuevo.setBorder(null);
+        PanelActualizar.add(ApellidoNuevo);
+
+        JLabel Ced = new JLabel("Cedula del vendedor");
+        Ced.setBounds(50, 120, 100, 40);
+        Ced.setForeground(Color.black);
+        Ced.setFont(fuente);
+        Ced.setBorder(null);
+        PanelActualizar.add(Ced);
+    
+        JTextField TextNombreNuevo = new JTextField("");
+        TextNombreNuevo.setBounds(200, 180, 130, 40);
+        TextNombreNuevo.setBackground(new Color(101, 237, 225));
+        TextNombreNuevo.setForeground(Color.black);
+        TextNombreNuevo.setBorder(null);
+        PanelActualizar.add(TextNombreNuevo);
+
+        JTextField TextApellidoNuevo = new JTextField("");
+        TextApellidoNuevo.setBounds(200, 240, 130, 40);
+        TextApellidoNuevo.setBackground(new Color(101, 237, 225));
+        TextApellidoNuevo.setForeground(Color.black);
+        TextApellidoNuevo.setBorder(null);
+        PanelActualizar.add(TextApellidoNuevo);
+
+
+        JTextField TextCed = new JTextField("");
+        TextCed.setBounds(200, 120, 130, 40);
+        TextCed.setBackground(new Color(101, 237, 225));
+        TextCed.setForeground(Color.black);
+        TextCed.setBorder(null);
+        PanelActualizar.add(TextCed);
+
+
+        JButton ActualizarVendedor = new JButton("Actualizar");
+        ActualizarVendedor.setBounds(200, 330, 150, 40);
+        ActualizarVendedor.setBackground(new Color(36, 186, 227));
+        ActualizarVendedor.setForeground(Color.white);
+        ActualizarVendedor.setFocusPainted(false);
+        ActualizarVendedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String Nombre = TextNombreNuevo.getText();
+                String Id = TextCed.getText();
+                String ApNu = TextApellidoNuevo.getText();
+                
+                Connection conexion = null;
+                PreparedStatement preparar = null;
+                
+                String SQL = "{CALL actualizar_vendedor(?, ?, ?)}";
+                
+                try {
+                    Class.forName("com.mysql.jdbc.Driver"); // Controlador JDBC actualizado
+                    conexion = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", 
+                            "root", "Deiby_R04");
+                    conexion.setAutoCommit(true);
+                
+                    // Preparar la consulta con los parámetros en el orden correcto
+                    preparar = conexion.prepareStatement(SQL);
+                    preparar.setString(1, Nombre); // Primer parámetro
+                    preparar.setString(2, ApNu);   // Segundo parámetro
+                    preparar.setString(3, Id);     // Tercer parámetro
+                
+                    // Ejecutar la consulta
+                    int exito = preparar.executeUpdate();
+                
+                    if (exito > 0) {
+                        JOptionPane.showMessageDialog(null, "Se actualizaron los datos correctamente");
+                    }
+                
+                } catch (Exception ew) {
+                    ew.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
+                } finally {
+                    // Cerrar los recursos
+                    try {
+                        if (preparar != null) preparar.close();
+                        if (conexion != null) conexion.close();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                
+                // Limpiar campos
+                TextNombreNuevo.setText("");
+                TextApellidoNuevo.setText("");
+                TextCed.setText("");                
+            }
+        });
+        PanelActualizar.add(ActualizarVendedor);
+
+        JButton SalirAc = new JButton("Salir");
+        SalirAc.setBounds(450, 330, 150, 40);
+        SalirAc.setBackground(new Color(36, 186, 227));
+        SalirAc.setForeground(Color.white);
+        SalirAc.setFocusPainted(false);
+        SalirAc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPanel.setVisible(true);
+                PanelAgregar.setVisible(false);
+                setContentPane(MainPanel);
+            }
+        });
+        PanelActualizar.add(SalirAc);
+
+
+        //Componentes para eliminar
+        JLabel Cedulaa = new JLabel("Cedula del vendedor a eliminar");
+        Cedulaa.setBounds(200, 200, 300, 40);
+        Cedulaa.setForeground(Color.black);
+        Cedulaa.setBorder(null);
+        Font fuene = new Font("Agency FB", Font.BOLD, 16);
+        Cedulaa.setFont(fuene);
+        PanelEliminar.add(Cedulaa);
+
+        JTextField TextId = new JTextField("");
+        TextId.setBounds(400, 200, 130, 40);
+        TextId.setBackground(new Color(101, 237, 225));
+        TextId.setForeground(Color.black);
+        TextId.setBorder(null);
+        PanelEliminar.add(TextId);
+
+        JButton EliminarVendedor = new JButton("Eliminar");
+        EliminarVendedor.setBounds(200, 330, 150, 40);
+        EliminarVendedor.setBackground(new Color(36, 186, 227));
+        EliminarVendedor.setForeground(Color.white);
+        EliminarVendedor.setFocusPainted(false);
+        EliminarVendedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Connection conexion = null;
+                PreparedStatement preparar = null;
+
+                String Id = TextId.getText();
+                try {
+                    conexion = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", "root",
+                            "Deiby_R04");
+                    conexion.setAutoCommit(true);
+                    String Sentencia = "{CALL eliminar_vendedor(?)}";
+                    preparar = conexion.prepareStatement(Sentencia);
+                    preparar.setString(1, Id);
+
+                    int exito = preparar.executeUpdate();
+                    if (exito > 0) {
+                        JOptionPane.showMessageDialog(null, "El vendedor se eliminó con éxito");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se encuentra vendedor con esa cedula");
+                    }
+
+                } catch (SQLException e1) {
+
+                    e1.printStackTrace();
+                } finally {
+                    {
+                        try {
+                            if (conexion != null)
+                                conexion.close();
+                            if (preparar != null)
+                                preparar.close();
+
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }
+
+            
+            }
+        });
+        PanelEliminar.add(EliminarVendedor);
+
+
+        JButton Saliir = new JButton("Salir");
+        Saliir.setBounds(450, 330, 150, 40);
+        Saliir.setBackground(new Color(36, 186, 227));
+        Saliir.setForeground(Color.white);
+        Saliir.setFocusPainted(false);
+        Saliir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPanel.setVisible(true);
+                PanelEliminar.setVisible(false);
+                setContentPane(MainPanel);
+            }
+        });
+        PanelEliminar.add(Saliir);
+
+
+
         MainPanel.add(PanelArriba);
         MainPanel.add(PanelAbajo);
         MainPanel.add(Agregar);
         MainPanel.add(Mostrar);
-        MainPanel.add(Retiro);
-        MainPanel.add(Deposito);
+
         MainPanel.add(Eliminar);
         MainPanel.add(Actualizar);
     }
