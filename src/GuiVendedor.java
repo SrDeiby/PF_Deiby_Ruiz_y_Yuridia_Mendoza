@@ -261,13 +261,13 @@ public class GuiVendedor extends JFrame {
                             "Deiby_R04");
                     conexion.setAutoCommit(true);
 
-                    // Preparar la consulta
+        
                     preparar = conexion.prepareStatement(SQL);
                     preparar.setString(2, Nombre);
                     preparar.setString(3, Ap1);
                     preparar.setString(1, Id);
 
-                    // Ejecutar la consulta
+  
                     int exito = preparar.executeUpdate();
 
                     if (exito > 0) {
@@ -278,7 +278,7 @@ public class GuiVendedor extends JFrame {
                     ew.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
                 } finally {
-                    // Cerrar los recursos
+
                     try {
                         if (preparar != null)
                             preparar.close();
@@ -373,19 +373,17 @@ public class GuiVendedor extends JFrame {
                 String SQL = "{CALL actualizar_vendedor(?, ?, ?)}";
                 
                 try {
-                    Class.forName("com.mysql.jdbc.Driver"); // Controlador JDBC actualizado
+                    Class.forName("com.mysql.jdbc.Driver"); 
                     conexion = DriverManager.getConnection(
                             "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", 
                             "root", "Deiby_R04");
                     conexion.setAutoCommit(true);
-                
-                    // Preparar la consulta con los parámetros en el orden correcto
+
                     preparar = conexion.prepareStatement(SQL);
-                    preparar.setString(1, Nombre); // Primer parámetro
-                    preparar.setString(2, ApNu);   // Segundo parámetro
-                    preparar.setString(3, Id);     // Tercer parámetro
-                
-                    // Ejecutar la consulta
+                    preparar.setString(1, Nombre); 
+                    preparar.setString(2, ApNu);   
+                    preparar.setString(3, Id);     
+
                     int exito = preparar.executeUpdate();
                 
                     if (exito > 0) {
@@ -396,7 +394,6 @@ public class GuiVendedor extends JFrame {
                     ew.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
                 } finally {
-                    // Cerrar los recursos
                     try {
                         if (preparar != null) preparar.close();
                         if (conexion != null) conexion.close();
@@ -404,8 +401,7 @@ public class GuiVendedor extends JFrame {
                         ex.printStackTrace();
                     }
                 }
-                
-                // Limpiar campos
+
                 TextNombreNuevo.setText("");
                 TextApellidoNuevo.setText("");
                 TextCed.setText("");                

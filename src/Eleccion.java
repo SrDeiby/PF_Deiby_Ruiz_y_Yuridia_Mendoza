@@ -57,7 +57,7 @@ public Eleccion(){
         Producto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiVendedor login = new GuiVendedor();
+                GuiProducto login = new GuiProducto();
                 login.setVisible(true); 
             }
         });
