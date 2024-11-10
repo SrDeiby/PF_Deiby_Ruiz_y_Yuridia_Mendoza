@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,51 +41,36 @@ public class GuiVendedor extends JFrame {
         setContentPane(MainPanel);
         getContentPane();
         MainPanel.setLayout(null);
-        MainPanel.setBackground(new Color(255, 255, 255));
+        MainPanel.setBackground(new Color(220, 199, 165 ));
 
         LabelImagen1 = new JLabel();// 
         LabelImagen1.setBounds(0, 70, 400, 380);
         this.Pintar(this.LabelImagen1, "Imagenes\\Fondo.png");
-        MainPanel.add(LabelImagen1);
-
-        JPanel PanelArriba = new JPanel();
-        PanelArriba.setBounds(0, 0, 800, 60);
-        PanelArriba.setBackground(new Color(0, 50, 131));
-
-        JPanel PanelAbajo = new JPanel();
-        PanelAbajo.setBounds(0, 451, 800, 60);
-        PanelAbajo.setBackground(new Color(0, 50, 131));
+        //MainPanel.add(LabelImagen1);
 
         JPanel PanelAgregar = new JPanel();
         getContentPane();
         PanelAgregar.setLayout(null);
-        PanelAgregar.setBackground(new Color(255, 255, 255));
+        PanelAgregar.setBackground(new Color(220, 199, 165 ));
 
         JPanel PanelEliminar = new JPanel();
         getContentPane();
         PanelEliminar.setLayout(null);
-        PanelEliminar.setBackground(new Color(255, 255, 255));
+        PanelEliminar.setBackground(new Color(220, 199, 165 ));
 
         JPanel PanelActualizar = new JPanel();
         getContentPane();
         PanelActualizar.setLayout(null);
-        PanelActualizar.setBackground(new Color(255, 255, 255));
+        PanelActualizar.setBackground(new Color(220, 199, 165 ));
 
-        JPanel PanelArriba2 = new JPanel();
-        PanelArriba2.setBounds(0, 0, 800, 60);
-        PanelArriba2.setBackground(new Color(0, 50, 131));
-        PanelAgregar.add(PanelArriba2);
-
-        JPanel PanelAbajo2 = new JPanel();
-        PanelAbajo2.setBounds(0, 451, 800, 60);
-        PanelAbajo2.setBackground(new Color(0, 50, 131));
-        PanelAgregar.add(PanelAbajo2);
 
         // Boton para hacer visible el panel de Agregar
-        JButton Agregar = new JButton("Agregar");
-        Agregar.setBounds(580, 140, 150, 40);
-        Agregar.setBackground(new Color(36, 186, 227));
-        Agregar.setForeground(Color.white);
+        JButton Agregar = new JButton("AGREGAR");
+        Agregar.setBounds(300, 70, 200, 45);
+        Agregar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Agregar.setBackground(new Color(160, 82, 45 ));
+        Agregar.setForeground(new Color(61, 43, 31 ));
+        Agregar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Agregar.setFocusPainted(false);
         Agregar.addActionListener(new ActionListener() {
             @Override
@@ -94,10 +81,12 @@ public class GuiVendedor extends JFrame {
             }
         });
 
-        JButton Mostrar = new JButton("Mostrar");
-        Mostrar.setBounds(580, 200, 150, 40);
-        Mostrar.setBackground(new Color(36, 186, 227));
-        Mostrar.setForeground(Color.white);
+        JButton Mostrar = new JButton("MOSTRAR");
+        Mostrar.setBounds(300, 150, 200, 45);
+        Mostrar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Mostrar.setBackground(new Color(160, 82, 45 ));
+        Mostrar.setForeground(new Color(61, 43, 31 ));
+        Mostrar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Mostrar.setFocusPainted(false);
         Mostrar.addActionListener(new ActionListener() {
             @Override
@@ -161,10 +150,12 @@ public class GuiVendedor extends JFrame {
         });
 
     
-        JButton Eliminar = new JButton("Eliminar");
-        Eliminar.setBounds(580, 380, 150, 40);
-        Eliminar.setBackground(new Color(36, 186, 227));
-        Eliminar.setForeground(Color.white);
+        JButton Eliminar = new JButton("ELIMINAR");
+        Eliminar.setBounds(300, 230, 200, 45);
+        Eliminar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Eliminar.setBackground(new Color(160, 82, 45 ));
+        Eliminar.setForeground(new Color(61, 43, 31 ));
+        Eliminar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Eliminar.setFocusPainted(false);
         Eliminar.addActionListener(new ActionListener() {
             @Override
@@ -177,10 +168,12 @@ public class GuiVendedor extends JFrame {
             }     
         });
 
-        JButton Actualizar = new JButton("Actualizar");
-        Actualizar.setBounds(580, 300, 150, 40);
-        Actualizar.setBackground(new Color(36, 186, 227));
-        Actualizar.setForeground(Color.white);
+        JButton Actualizar = new JButton("ACTUALIZAR");
+        Actualizar.setBounds(300, 310, 200, 45);
+        Actualizar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Actualizar.setBackground(new Color(160, 82, 45 ));
+        Actualizar.setForeground(new Color(61, 43, 31 ));
+        Actualizar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Actualizar.setFocusPainted(false);
         Actualizar.addActionListener(new ActionListener() {
             @Override
@@ -191,38 +184,54 @@ public class GuiVendedor extends JFrame {
             }
         });
 
+        JButton Regresar = new JButton("REGRESAR");
+        Regresar.setBounds(300, 390, 200, 45);
+        Regresar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Regresar.setBackground(new Color(160, 82, 45 ));
+        Regresar.setForeground(new Color(61, 43, 31 ));
+        Regresar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
+        Regresar.setFocusPainted(false);
+        Regresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Eleccion login = new Eleccion();
+                login.setVisible(true);
+                dispose();
+            }
+        });
+
         // Componentes del PanelAgregar
         JLabel Nombre = new JLabel("Nombre");
-        Nombre.setBounds(50, 120, 100, 40);
-        Nombre.setForeground(Color.black);
+        Nombre.setBounds(150, 120, 100, 40);
+        Nombre.setForeground(new Color(61, 43, 31));
         Nombre.setBorder(null);
-        Font fuente = new Font("Agency FB", Font.BOLD, 16);
+        Font fuente = new Font("Agency FB", Font.BOLD, 20);
         Nombre.setFont(fuente);
         PanelAgregar.add(Nombre);
 
         JLabel Apellido1 = new JLabel("Primer apellido");
-        Apellido1.setBounds(50, 180, 100, 40);
-        Apellido1.setForeground(Color.black);
+        Apellido1.setBounds(150, 180, 100, 40);
+        Apellido1.setForeground(new Color(61, 43, 31));
         Apellido1.setFont(fuente);
         Apellido1.setBorder(null);
         PanelAgregar.add(Apellido1);
 
-        JLabel ID = new JLabel("Cedula");
-        ID.setBounds(50, 240, 100, 40);
-        ID.setForeground(Color.black);
+        JLabel ID = new JLabel("Cédula");
+        ID.setBounds(150, 240, 100, 40);
+        ID.setForeground(new Color(61, 43, 31));
         ID.setFont(fuente);
         ID.setBorder(null);
         PanelAgregar.add(ID);
     
         JTextField TextNombre = new JTextField("");
-        TextNombre.setBounds(200, 120, 130, 40);
+        TextNombre.setBounds(270, 120, 150, 40);
         TextNombre.setBackground(new Color(101, 237, 225));
         TextNombre.setForeground(Color.black);
         TextNombre.setBorder(null);
         PanelAgregar.add(TextNombre);
 
         JTextField TextApellido = new JTextField("");
-        TextApellido.setBounds(200, 180, 130, 40);
+        TextApellido.setBounds(270, 180, 150, 40);
         TextApellido.setBackground(new Color(101, 237, 225));
         TextApellido.setForeground(Color.black);
         TextApellido.setBorder(null);
@@ -230,7 +239,7 @@ public class GuiVendedor extends JFrame {
 
 
         JTextField TextID = new JTextField("");
-        TextID.setBounds(200, 240, 130, 40);
+        TextID.setBounds(270, 240, 150, 40);
         TextID.setBackground(new Color(101, 237, 225));
         TextID.setForeground(Color.black);
         TextID.setBorder(null);
@@ -239,8 +248,10 @@ public class GuiVendedor extends JFrame {
 
         JButton AgregarPersona = new JButton("Agregar");
         AgregarPersona.setBounds(200, 330, 150, 40);
-        AgregarPersona.setBackground(new Color(36, 186, 227));
-        AgregarPersona.setForeground(Color.white);
+        AgregarPersona.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        AgregarPersona.setBackground(new Color(160, 82, 45 ));
+        AgregarPersona.setForeground(new Color(61, 43, 31 ));
+        AgregarPersona.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         AgregarPersona.setFocusPainted(false);
         AgregarPersona.addActionListener(new ActionListener() {
             @Override
@@ -297,8 +308,10 @@ public class GuiVendedor extends JFrame {
 
         JButton Salir = new JButton("Salir");
         Salir.setBounds(450, 330, 150, 40);
-        Salir.setBackground(new Color(36, 186, 227));
-        Salir.setForeground(Color.white);
+        Salir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Salir.setBackground(new Color(160, 82, 45 ));
+        Salir.setForeground(new Color(61, 43, 31 ));
+        Salir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Salir.setFocusPainted(false);
         Salir.addActionListener(new ActionListener() {
             @Override
@@ -312,53 +325,55 @@ public class GuiVendedor extends JFrame {
 
         // Componentes del Actualizar
         JLabel NombreNuevo = new JLabel("Nombre nuevo");
-        NombreNuevo.setBounds(50, 180, 100, 40);
-        NombreNuevo.setForeground(Color.black);
+        NombreNuevo.setBounds(150, 180, 100, 40);
+        NombreNuevo.setForeground(new Color(61, 43, 31));
         NombreNuevo.setBorder(null);
         NombreNuevo.setFont(fuente);
         PanelActualizar.add(NombreNuevo);
 
         JLabel ApellidoNuevo = new JLabel("Apellido Nuevo");
-        ApellidoNuevo.setBounds(50, 240, 100, 40);
-        ApellidoNuevo.setForeground(Color.black);
+        ApellidoNuevo.setBounds(150, 240, 100, 40);
+        ApellidoNuevo.setForeground(new Color(61, 43, 31));
         ApellidoNuevo.setFont(fuente);
         ApellidoNuevo.setBorder(null);
         PanelActualizar.add(ApellidoNuevo);
 
         JLabel Ced = new JLabel("Cedula del vendedor");
-        Ced.setBounds(50, 120, 100, 40);
-        Ced.setForeground(Color.black);
+        Ced.setBounds(150, 120, 150, 40);
+        Ced.setForeground(new Color(61, 43, 31));
         Ced.setFont(fuente);
         Ced.setBorder(null);
         PanelActualizar.add(Ced);
     
         JTextField TextNombreNuevo = new JTextField("");
-        TextNombreNuevo.setBounds(200, 180, 130, 40);
+        TextNombreNuevo.setBounds(300, 180, 150, 40);
         TextNombreNuevo.setBackground(new Color(101, 237, 225));
-        TextNombreNuevo.setForeground(Color.black);
+        TextNombreNuevo.setForeground(new Color(61, 43, 31));
         TextNombreNuevo.setBorder(null);
         PanelActualizar.add(TextNombreNuevo);
 
         JTextField TextApellidoNuevo = new JTextField("");
-        TextApellidoNuevo.setBounds(200, 240, 130, 40);
+        TextApellidoNuevo.setBounds(300, 240, 150, 40);
         TextApellidoNuevo.setBackground(new Color(101, 237, 225));
-        TextApellidoNuevo.setForeground(Color.black);
+        TextApellidoNuevo.setForeground(new Color(61, 43, 31));
         TextApellidoNuevo.setBorder(null);
         PanelActualizar.add(TextApellidoNuevo);
 
 
         JTextField TextCed = new JTextField("");
-        TextCed.setBounds(200, 120, 130, 40);
+        TextCed.setBounds(300, 120, 150, 40);
         TextCed.setBackground(new Color(101, 237, 225));
-        TextCed.setForeground(Color.black);
+        TextCed.setForeground(new Color(61, 43, 31));
         TextCed.setBorder(null);
         PanelActualizar.add(TextCed);
 
 
         JButton ActualizarVendedor = new JButton("Actualizar");
         ActualizarVendedor.setBounds(200, 330, 150, 40);
-        ActualizarVendedor.setBackground(new Color(36, 186, 227));
-        ActualizarVendedor.setForeground(Color.white);
+        ActualizarVendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        ActualizarVendedor.setBackground(new Color(160, 82, 45 ));
+        ActualizarVendedor.setForeground(new Color(61, 43, 31 ));
+        ActualizarVendedor.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         ActualizarVendedor.setFocusPainted(false);
         ActualizarVendedor.addActionListener(new ActionListener() {
             @Override
@@ -411,8 +426,10 @@ public class GuiVendedor extends JFrame {
 
         JButton SalirAc = new JButton("Salir");
         SalirAc.setBounds(450, 330, 150, 40);
-        SalirAc.setBackground(new Color(36, 186, 227));
-        SalirAc.setForeground(Color.white);
+        SalirAc.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        SalirAc.setBackground(new Color(160, 82, 45 ));
+        SalirAc.setForeground(new Color(61, 43, 31 ));
+        SalirAc.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         SalirAc.setFocusPainted(false);
         SalirAc.addActionListener(new ActionListener() {
             @Override
@@ -427,24 +444,25 @@ public class GuiVendedor extends JFrame {
 
         //Componentes para eliminar
         JLabel Cedulaa = new JLabel("Cedula del vendedor a eliminar");
-        Cedulaa.setBounds(200, 200, 300, 40);
+        Cedulaa.setBounds(100, 200, 300, 40);
         Cedulaa.setForeground(Color.black);
         Cedulaa.setBorder(null);
-        Font fuene = new Font("Agency FB", Font.BOLD, 16);
-        Cedulaa.setFont(fuene);
+        Cedulaa.setFont(fuente);
         PanelEliminar.add(Cedulaa);
 
         JTextField TextId = new JTextField("");
-        TextId.setBounds(400, 200, 130, 40);
+        TextId.setBounds(300, 200, 150, 40);
         TextId.setBackground(new Color(101, 237, 225));
-        TextId.setForeground(Color.black);
+        TextId.setForeground(new Color(61, 43, 31));
         TextId.setBorder(null);
         PanelEliminar.add(TextId);
 
         JButton EliminarVendedor = new JButton("Eliminar");
         EliminarVendedor.setBounds(200, 330, 150, 40);
-        EliminarVendedor.setBackground(new Color(36, 186, 227));
-        EliminarVendedor.setForeground(Color.white);
+        EliminarVendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        EliminarVendedor.setBackground(new Color(160, 82, 45 ));
+        EliminarVendedor.setForeground(new Color(61, 43, 31 ));
+        EliminarVendedor.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         EliminarVendedor.setFocusPainted(false);
         EliminarVendedor.addActionListener(new ActionListener() {
             @Override
@@ -485,8 +503,7 @@ public class GuiVendedor extends JFrame {
                         }
                     }
                 }
-
-            
+            TextId.setText("");
             }
         });
         PanelEliminar.add(EliminarVendedor);
@@ -494,8 +511,10 @@ public class GuiVendedor extends JFrame {
 
         JButton Saliir = new JButton("Salir");
         Saliir.setBounds(450, 330, 150, 40);
-        Saliir.setBackground(new Color(36, 186, 227));
-        Saliir.setForeground(Color.white);
+        Saliir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Saliir.setBackground(new Color(160, 82, 45 ));
+        Saliir.setForeground(new Color(61, 43, 31 ));
+        Saliir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Saliir.setFocusPainted(false);
         Saliir.addActionListener(new ActionListener() {
             @Override
@@ -508,12 +527,9 @@ public class GuiVendedor extends JFrame {
         PanelEliminar.add(Saliir);
 
 
-
-        MainPanel.add(PanelArriba);
-        MainPanel.add(PanelAbajo);
         MainPanel.add(Agregar);
         MainPanel.add(Mostrar);
-
+        MainPanel.add(Regresar);
         MainPanel.add(Eliminar);
         MainPanel.add(Actualizar);
     }

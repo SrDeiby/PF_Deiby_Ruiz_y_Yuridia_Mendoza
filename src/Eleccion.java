@@ -1,6 +1,8 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,29 +38,35 @@ public Eleccion(){
         this.Pintar(this.LabelImagen1, "Imagenes\\Store.jpg");
 
 
-        JButton Vendedor = new JButton("Vendedor");
+        JButton Vendedor = new JButton("VENDEDOR");
         Vendedor.setBounds(230, 250, 150, 40);
-        Vendedor.setBackground(new Color(36, 186, 227));
-        Vendedor.setForeground(Color.white);
+        Vendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Vendedor.setBackground(new Color(160, 82, 45 ));
+        Vendedor.setForeground(new Color(61, 43, 31 ));
         Vendedor.setFocusPainted(false);
+        Vendedor.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Vendedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiVendedor login = new GuiVendedor();
                 login.setVisible(true); 
+                dispose();
             }
         });
 
-        JButton Producto = new JButton("Producto");
+        JButton Producto = new JButton("PRODUCTO");
         Producto.setBounds(430, 250, 150, 40);
-        Producto.setBackground(new Color(36, 186, 227));
-        Producto.setForeground(Color.white);
+        Producto.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Producto.setBackground(new Color(160, 82, 45 ));
+        Producto.setForeground(new Color(61, 43, 31 ));
         Producto.setFocusPainted(false);
+        Producto.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Producto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiProducto login = new GuiProducto();
                 login.setVisible(true); 
+                dispose();
             }
         });
 

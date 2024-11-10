@@ -75,6 +75,7 @@ public Login(){
             public void actionPerformed(ActionEvent e) {
                 Eleccion login = new Eleccion();
                 login.setVisible(true); 
+                dispose();
             }
         });
 
