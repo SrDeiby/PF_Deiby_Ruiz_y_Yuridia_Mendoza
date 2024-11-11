@@ -4,5 +4,3 @@ public class App {
         login.setVisible(true);
     }
 }
-
-

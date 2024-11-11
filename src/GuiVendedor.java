@@ -41,35 +41,34 @@ public class GuiVendedor extends JFrame {
         setContentPane(MainPanel);
         getContentPane();
         MainPanel.setLayout(null);
-        MainPanel.setBackground(new Color(220, 199, 165 ));
+        MainPanel.setBackground(new Color(220, 199, 165));
 
-        LabelImagen1 = new JLabel();// 
+        LabelImagen1 = new JLabel();//
         LabelImagen1.setBounds(0, 70, 400, 380);
         this.Pintar(this.LabelImagen1, "Imagenes\\Fondo.png");
-        //MainPanel.add(LabelImagen1);
+        // MainPanel.add(LabelImagen1);
 
         JPanel PanelAgregar = new JPanel();
         getContentPane();
         PanelAgregar.setLayout(null);
-        PanelAgregar.setBackground(new Color(220, 199, 165 ));
+        PanelAgregar.setBackground(new Color(220, 199, 165));
 
         JPanel PanelEliminar = new JPanel();
         getContentPane();
         PanelEliminar.setLayout(null);
-        PanelEliminar.setBackground(new Color(220, 199, 165 ));
+        PanelEliminar.setBackground(new Color(220, 199, 165));
 
         JPanel PanelActualizar = new JPanel();
         getContentPane();
         PanelActualizar.setLayout(null);
-        PanelActualizar.setBackground(new Color(220, 199, 165 ));
-
+        PanelActualizar.setBackground(new Color(220, 199, 165));
 
         // Boton para hacer visible el panel de Agregar
         JButton Agregar = new JButton("AGREGAR");
         Agregar.setBounds(300, 70, 200, 45);
         Agregar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Agregar.setBackground(new Color(160, 82, 45 ));
-        Agregar.setForeground(new Color(61, 43, 31 ));
+        Agregar.setBackground(new Color(160, 82, 45));
+        Agregar.setForeground(new Color(61, 43, 31));
         Agregar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Agregar.setFocusPainted(false);
         Agregar.addActionListener(new ActionListener() {
@@ -84,8 +83,8 @@ public class GuiVendedor extends JFrame {
         JButton Mostrar = new JButton("MOSTRAR");
         Mostrar.setBounds(300, 150, 200, 45);
         Mostrar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Mostrar.setBackground(new Color(160, 82, 45 ));
-        Mostrar.setForeground(new Color(61, 43, 31 ));
+        Mostrar.setBackground(new Color(160, 82, 45));
+        Mostrar.setForeground(new Color(61, 43, 31));
         Mostrar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Mostrar.setFocusPainted(false);
         Mostrar.addActionListener(new ActionListener() {
@@ -149,12 +148,11 @@ public class GuiVendedor extends JFrame {
             }
         });
 
-    
         JButton Eliminar = new JButton("ELIMINAR");
         Eliminar.setBounds(300, 230, 200, 45);
         Eliminar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Eliminar.setBackground(new Color(160, 82, 45 ));
-        Eliminar.setForeground(new Color(61, 43, 31 ));
+        Eliminar.setBackground(new Color(160, 82, 45));
+        Eliminar.setForeground(new Color(61, 43, 31));
         Eliminar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Eliminar.setFocusPainted(false);
         Eliminar.addActionListener(new ActionListener() {
@@ -165,14 +163,14 @@ public class GuiVendedor extends JFrame {
                 PanelEliminar.setVisible(true);
                 setContentPane(PanelEliminar);
 
-            }     
+            }
         });
 
         JButton Actualizar = new JButton("ACTUALIZAR");
         Actualizar.setBounds(300, 310, 200, 45);
         Actualizar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Actualizar.setBackground(new Color(160, 82, 45 ));
-        Actualizar.setForeground(new Color(61, 43, 31 ));
+        Actualizar.setBackground(new Color(160, 82, 45));
+        Actualizar.setForeground(new Color(61, 43, 31));
         Actualizar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Actualizar.setFocusPainted(false);
         Actualizar.addActionListener(new ActionListener() {
@@ -180,15 +178,15 @@ public class GuiVendedor extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 MainPanel.setVisible(false);
                 PanelActualizar.setVisible(true);
-                setContentPane(PanelActualizar);    
+                setContentPane(PanelActualizar);
             }
         });
 
         JButton Regresar = new JButton("REGRESAR");
         Regresar.setBounds(300, 390, 200, 45);
         Regresar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Regresar.setBackground(new Color(160, 82, 45 ));
-        Regresar.setForeground(new Color(61, 43, 31 ));
+        Regresar.setBackground(new Color(160, 82, 45));
+        Regresar.setForeground(new Color(61, 43, 31));
         Regresar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Regresar.setFocusPainted(false);
         Regresar.addActionListener(new ActionListener() {
@@ -222,7 +220,7 @@ public class GuiVendedor extends JFrame {
         ID.setFont(fuente);
         ID.setBorder(null);
         PanelAgregar.add(ID);
-    
+
         JTextField TextNombre = new JTextField("");
         TextNombre.setBounds(270, 120, 150, 40);
         TextNombre.setBackground(new Color(101, 237, 225));
@@ -237,7 +235,6 @@ public class GuiVendedor extends JFrame {
         TextApellido.setBorder(null);
         PanelAgregar.add(TextApellido);
 
-
         JTextField TextID = new JTextField("");
         TextID.setBounds(270, 240, 150, 40);
         TextID.setBackground(new Color(101, 237, 225));
@@ -245,12 +242,11 @@ public class GuiVendedor extends JFrame {
         TextID.setBorder(null);
         PanelAgregar.add(TextID);
 
-
         JButton AgregarPersona = new JButton("Agregar");
         AgregarPersona.setBounds(200, 330, 150, 40);
         AgregarPersona.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        AgregarPersona.setBackground(new Color(160, 82, 45 ));
-        AgregarPersona.setForeground(new Color(61, 43, 31 ));
+        AgregarPersona.setBackground(new Color(160, 82, 45));
+        AgregarPersona.setForeground(new Color(61, 43, 31));
         AgregarPersona.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         AgregarPersona.setFocusPainted(false);
         AgregarPersona.addActionListener(new ActionListener() {
@@ -272,13 +268,11 @@ public class GuiVendedor extends JFrame {
                             "Deiby_R04");
                     conexion.setAutoCommit(true);
 
-        
                     preparar = conexion.prepareStatement(SQL);
                     preparar.setString(2, Nombre);
                     preparar.setString(3, Ap1);
                     preparar.setString(1, Id);
 
-  
                     int exito = preparar.executeUpdate();
 
                     if (exito > 0) {
@@ -309,8 +303,8 @@ public class GuiVendedor extends JFrame {
         JButton Salir = new JButton("Salir");
         Salir.setBounds(450, 330, 150, 40);
         Salir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Salir.setBackground(new Color(160, 82, 45 ));
-        Salir.setForeground(new Color(61, 43, 31 ));
+        Salir.setBackground(new Color(160, 82, 45));
+        Salir.setForeground(new Color(61, 43, 31));
         Salir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Salir.setFocusPainted(false);
         Salir.addActionListener(new ActionListener() {
@@ -344,7 +338,7 @@ public class GuiVendedor extends JFrame {
         Ced.setFont(fuente);
         Ced.setBorder(null);
         PanelActualizar.add(Ced);
-    
+
         JTextField TextNombreNuevo = new JTextField("");
         TextNombreNuevo.setBounds(300, 180, 150, 40);
         TextNombreNuevo.setBackground(new Color(101, 237, 225));
@@ -359,7 +353,6 @@ public class GuiVendedor extends JFrame {
         TextApellidoNuevo.setBorder(null);
         PanelActualizar.add(TextApellidoNuevo);
 
-
         JTextField TextCed = new JTextField("");
         TextCed.setBounds(300, 120, 150, 40);
         TextCed.setBackground(new Color(101, 237, 225));
@@ -367,12 +360,11 @@ public class GuiVendedor extends JFrame {
         TextCed.setBorder(null);
         PanelActualizar.add(TextCed);
 
-
         JButton ActualizarVendedor = new JButton("Actualizar");
         ActualizarVendedor.setBounds(200, 330, 150, 40);
         ActualizarVendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        ActualizarVendedor.setBackground(new Color(160, 82, 45 ));
-        ActualizarVendedor.setForeground(new Color(61, 43, 31 ));
+        ActualizarVendedor.setBackground(new Color(160, 82, 45));
+        ActualizarVendedor.setForeground(new Color(61, 43, 31));
         ActualizarVendedor.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         ActualizarVendedor.setFocusPainted(false);
         ActualizarVendedor.addActionListener(new ActionListener() {
@@ -381,37 +373,39 @@ public class GuiVendedor extends JFrame {
                 String Nombre = TextNombreNuevo.getText();
                 String Id = TextCed.getText();
                 String ApNu = TextApellidoNuevo.getText();
-                
+
                 Connection conexion = null;
                 PreparedStatement preparar = null;
-                
+
                 String SQL = "{CALL actualizar_vendedor(?, ?, ?)}";
-                
+
                 try {
-                    Class.forName("com.mysql.jdbc.Driver"); 
+                    Class.forName("com.mysql.jdbc.Driver");
                     conexion = DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true", 
+                            "jdbc:mysql://localhost:3306/db_tienda?verifyServerCertificate=false&useSSL=true",
                             "root", "Deiby_R04");
                     conexion.setAutoCommit(true);
 
                     preparar = conexion.prepareStatement(SQL);
-                    preparar.setString(1, Nombre); 
-                    preparar.setString(2, ApNu);   
-                    preparar.setString(3, Id);     
+                    preparar.setString(1, Nombre);
+                    preparar.setString(2, ApNu);
+                    preparar.setString(3, Id);
 
                     int exito = preparar.executeUpdate();
-                
+
                     if (exito > 0) {
                         JOptionPane.showMessageDialog(null, "Se actualizaron los datos correctamente");
                     }
-                
+
                 } catch (Exception ew) {
                     ew.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
                 } finally {
                     try {
-                        if (preparar != null) preparar.close();
-                        if (conexion != null) conexion.close();
+                        if (preparar != null)
+                            preparar.close();
+                        if (conexion != null)
+                            conexion.close();
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
@@ -419,7 +413,7 @@ public class GuiVendedor extends JFrame {
 
                 TextNombreNuevo.setText("");
                 TextApellidoNuevo.setText("");
-                TextCed.setText("");                
+                TextCed.setText("");
             }
         });
         PanelActualizar.add(ActualizarVendedor);
@@ -427,8 +421,8 @@ public class GuiVendedor extends JFrame {
         JButton SalirAc = new JButton("Salir");
         SalirAc.setBounds(450, 330, 150, 40);
         SalirAc.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        SalirAc.setBackground(new Color(160, 82, 45 ));
-        SalirAc.setForeground(new Color(61, 43, 31 ));
+        SalirAc.setBackground(new Color(160, 82, 45));
+        SalirAc.setForeground(new Color(61, 43, 31));
         SalirAc.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         SalirAc.setFocusPainted(false);
         SalirAc.addActionListener(new ActionListener() {
@@ -441,8 +435,7 @@ public class GuiVendedor extends JFrame {
         });
         PanelActualizar.add(SalirAc);
 
-
-        //Componentes para eliminar
+        // Componentes para eliminar
         JLabel Cedulaa = new JLabel("Cedula del vendedor a eliminar");
         Cedulaa.setBounds(100, 200, 300, 40);
         Cedulaa.setForeground(Color.black);
@@ -460,8 +453,8 @@ public class GuiVendedor extends JFrame {
         JButton EliminarVendedor = new JButton("Eliminar");
         EliminarVendedor.setBounds(200, 330, 150, 40);
         EliminarVendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        EliminarVendedor.setBackground(new Color(160, 82, 45 ));
-        EliminarVendedor.setForeground(new Color(61, 43, 31 ));
+        EliminarVendedor.setBackground(new Color(160, 82, 45));
+        EliminarVendedor.setForeground(new Color(61, 43, 31));
         EliminarVendedor.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         EliminarVendedor.setFocusPainted(false);
         EliminarVendedor.addActionListener(new ActionListener() {
@@ -503,17 +496,16 @@ public class GuiVendedor extends JFrame {
                         }
                     }
                 }
-            TextId.setText("");
+                TextId.setText("");
             }
         });
         PanelEliminar.add(EliminarVendedor);
 
-
         JButton Saliir = new JButton("Salir");
         Saliir.setBounds(450, 330, 150, 40);
         Saliir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
-        Saliir.setBackground(new Color(160, 82, 45 ));
-        Saliir.setForeground(new Color(61, 43, 31 ));
+        Saliir.setBackground(new Color(160, 82, 45));
+        Saliir.setForeground(new Color(61, 43, 31));
         Saliir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Saliir.setFocusPainted(false);
         Saliir.addActionListener(new ActionListener() {
