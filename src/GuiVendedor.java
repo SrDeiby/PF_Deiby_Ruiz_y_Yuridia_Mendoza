@@ -526,6 +526,13 @@ public class GuiVendedor extends JFrame {
         });
         PanelEliminar.add(Saliir);
 
+        JLabel Titulo = new JLabel("Administración de los vendedores");
+        Titulo.setBounds(250, 10, 400, 40);
+        Titulo.setForeground(Color.black);
+        Font fuentee = new Font("Agency FB", Font.BOLD, 30);
+        Titulo.setFont(fuentee);
+        Titulo.setBorder(null);
+        MainPanel.add(Titulo);
 
         MainPanel.add(Agregar);
         MainPanel.add(Mostrar);

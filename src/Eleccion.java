@@ -38,8 +38,8 @@ public Eleccion(){
         this.Pintar(this.LabelImagen1, "Imagenes\\Store.jpg");
 
 
-        JButton Vendedor = new JButton("VENDEDOR");
-        Vendedor.setBounds(230, 250, 150, 40);
+        JButton Vendedor = new JButton("VENDEDORES");
+        Vendedor.setBounds(160, 450, 200, 45);
         Vendedor.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
         Vendedor.setBackground(new Color(160, 82, 45 ));
         Vendedor.setForeground(new Color(61, 43, 31 ));
@@ -54,8 +54,8 @@ public Eleccion(){
             }
         });
 
-        JButton Producto = new JButton("PRODUCTO");
-        Producto.setBounds(430, 250, 150, 40);
+        JButton Producto = new JButton("PRODUCTOS");
+        Producto.setBounds(460, 450, 200, 45);
         Producto.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
         Producto.setBackground(new Color(160, 82, 45 ));
         Producto.setForeground(new Color(61, 43, 31 ));

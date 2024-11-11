@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,51 +41,37 @@ public class GuiProducto extends JFrame {
         setContentPane(MainPanel);
         getContentPane();
         MainPanel.setLayout(null);
-        MainPanel.setBackground(new Color(255, 255, 255));
+        MainPanel.setBackground(new Color(220, 199, 165 ));
 
         LabelImagen1 = new JLabel();// 
         LabelImagen1.setBounds(0, 70, 400, 380);
         this.Pintar(this.LabelImagen1, "Imagenes\\.Store.jpg");
-        MainPanel.add(LabelImagen1);
-
-        JPanel PanelArriba = new JPanel();
-        PanelArriba.setBounds(0, 0, 800, 60);
-        PanelArriba.setBackground(new Color(0, 50, 131));
-
-        JPanel PanelAbajo = new JPanel();
-        PanelAbajo.setBounds(0, 451, 800, 60);
-        PanelAbajo.setBackground(new Color(0, 50, 131));
+       // MainPanel.add(LabelImagen1);
 
         JPanel PanelAgregar = new JPanel();
         getContentPane();
         PanelAgregar.setLayout(null);
-        PanelAgregar.setBackground(new Color(255, 255, 255));
+        PanelAgregar.setBackground(new Color(220, 199, 165 ));
 
         JPanel PanelEliminar = new JPanel();
         getContentPane();
         PanelEliminar.setLayout(null);
-        PanelEliminar.setBackground(new Color(255, 255, 255));
+        PanelEliminar.setBackground(new Color(220, 199, 165 ));
 
         JPanel PanelActualizar = new JPanel();
         getContentPane();
         PanelActualizar.setLayout(null);
-        PanelActualizar.setBackground(new Color(255, 255, 255));
+        PanelActualizar.setBackground(new Color(220, 199, 165 ));
 
-        JPanel PanelArriba2 = new JPanel();
-        PanelArriba2.setBounds(0, 0, 800, 60);
-        PanelArriba2.setBackground(new Color(0, 50, 131));
-        PanelAgregar.add(PanelArriba2);
 
-        JPanel PanelAbajo2 = new JPanel();
-        PanelAbajo2.setBounds(0, 451, 800, 60);
-        PanelAbajo2.setBackground(new Color(0, 50, 131));
-        PanelAgregar.add(PanelAbajo2);
 
         // Boton para hacer visible el panel de Agregar
         JButton Agregar = new JButton("Agregar");
-        Agregar.setBounds(580, 140, 150, 40);
-        Agregar.setBackground(new Color(36, 186, 227));
-        Agregar.setForeground(Color.white);
+        Agregar.setBounds(300, 70, 200, 45);
+        Agregar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Agregar.setBackground(new Color(160, 82, 45 ));
+        Agregar.setForeground(new Color(61, 43, 31 ));
+        Agregar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Agregar.setFocusPainted(false);
         Agregar.addActionListener(new ActionListener() {
             @Override
@@ -95,9 +83,11 @@ public class GuiProducto extends JFrame {
         });
 
         JButton Mostrar = new JButton("Mostrar Productos");
-        Mostrar.setBounds(580, 200, 150, 40);
-        Mostrar.setBackground(new Color(36, 186, 227));
-        Mostrar.setForeground(Color.white);
+        Mostrar.setBounds(300, 150, 200, 45);
+        Mostrar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Mostrar.setBackground(new Color(160, 82, 45 ));
+        Mostrar.setForeground(new Color(61, 43, 31 ));
+        Mostrar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Mostrar.setFocusPainted(false);
         Mostrar.addActionListener(new ActionListener() {
             @Override
@@ -162,9 +152,11 @@ public class GuiProducto extends JFrame {
 
     
         JButton Eliminar = new JButton("Eliminar");
-        Eliminar.setBounds(580, 380, 150, 40);
-        Eliminar.setBackground(new Color(36, 186, 227));
-        Eliminar.setForeground(Color.white);
+        Eliminar.setBounds(300, 230, 200, 45);
+        Eliminar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Eliminar.setBackground(new Color(160, 82, 45 ));
+        Eliminar.setForeground(new Color(61, 43, 31 ));
+        Eliminar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Eliminar.setFocusPainted(false);
         Eliminar.addActionListener(new ActionListener() {
             @Override
@@ -178,9 +170,11 @@ public class GuiProducto extends JFrame {
         });
 
         JButton Actualizar = new JButton("Actualizar");
-        Actualizar.setBounds(580, 300, 150, 40);
-        Actualizar.setBackground(new Color(36, 186, 227));
-        Actualizar.setForeground(Color.white);
+        Actualizar.setBounds(300, 310, 200, 45);
+        Actualizar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Actualizar.setBackground(new Color(160, 82, 45 ));
+        Actualizar.setForeground(new Color(61, 43, 31 ));
+        Actualizar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Actualizar.setFocusPainted(false);
         Actualizar.addActionListener(new ActionListener() {
             @Override
@@ -191,45 +185,61 @@ public class GuiProducto extends JFrame {
             }
         });
 
+        JButton Regresar = new JButton("REGRESAR");
+        Regresar.setBounds(300, 390, 200, 45);
+        Regresar.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Regresar.setBackground(new Color(160, 82, 45 ));
+        Regresar.setForeground(new Color(61, 43, 31 ));
+        Regresar.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
+        Regresar.setFocusPainted(false);
+        Regresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Eleccion login = new Eleccion();
+                login.setVisible(true);
+                dispose();
+            }
+        });
+
         // Componentes del PanelAgregar
         JLabel IdP = new JLabel("Id del producto");
-        IdP.setBounds(50, 120, 250, 40);
+        IdP.setBounds(150, 120, 250, 40);
         IdP.setForeground(Color.black);
         IdP.setBorder(null);
-        Font fuente = new Font("Agency FB", Font.BOLD, 16);
+        Font fuente = new Font("Agency FB", Font.BOLD, 20);
         IdP.setFont(fuente);
         PanelAgregar.add(IdP);
 
         JLabel NombreP = new JLabel("Nombre del producto");
-        NombreP.setBounds(50, 180, 250, 40);
+        NombreP.setBounds(150, 180, 250, 40);
         NombreP.setForeground(Color.black);
         NombreP.setFont(fuente);
         NombreP.setBorder(null);
         PanelAgregar.add(NombreP);
 
         JLabel PrecioP = new JLabel("Precio del producto");
-        PrecioP.setBounds(50, 240, 250, 40);
+        PrecioP.setBounds(150, 240, 250, 40);
         PrecioP.setForeground(Color.black);
         PrecioP.setFont(fuente);
         PrecioP.setBorder(null);
         PanelAgregar.add(PrecioP);
 
         JLabel Des = new JLabel("Descripcion del producto");
-        Des.setBounds(50, 300, 250, 40);
+        Des.setBounds(150, 300, 250, 40);
         Des.setForeground(Color.black);
         Des.setFont(fuente);
         Des.setBorder(null);
         PanelAgregar.add(Des);
     
         JTextField TextIdP = new JTextField("");
-        TextIdP.setBounds(200, 120, 130, 40);
+        TextIdP.setBounds(270, 120, 130, 40);
         TextIdP.setBackground(new Color(101, 237, 225));
         TextIdP.setForeground(Color.black);
         TextIdP.setBorder(null);
         PanelAgregar.add(TextIdP);
 
         JTextField TextNombreP = new JTextField("");
-        TextNombreP.setBounds(200, 180, 130, 40);
+        TextNombreP.setBounds(270, 180, 130, 40);
         TextNombreP.setBackground(new Color(101, 237, 225));
         TextNombreP.setForeground(Color.black);
         TextNombreP.setBorder(null);
@@ -237,14 +247,14 @@ public class GuiProducto extends JFrame {
 
 
         JTextField TextPrecio = new JTextField("");
-        TextPrecio.setBounds(200, 240, 130, 40);
+        TextPrecio.setBounds(270, 240, 130, 40);
         TextPrecio.setBackground(new Color(101, 237, 225));
         TextPrecio.setForeground(Color.black);
         TextPrecio.setBorder(null);
         PanelAgregar.add(TextPrecio);
 
         JTextField TextDes = new JTextField("");
-        TextDes.setBounds(200, 300, 130, 40);
+        TextDes.setBounds(270, 300, 130, 40);
         TextDes.setBackground(new Color(101, 237, 225));
         TextDes.setForeground(Color.black);
         TextDes.setBorder(null);
@@ -253,8 +263,10 @@ public class GuiProducto extends JFrame {
 
         JButton AgregarProducto = new JButton("Agregar");
         AgregarProducto.setBounds(200, 400, 150, 40);
-        AgregarProducto.setBackground(new Color(36, 186, 227));
-        AgregarProducto.setForeground(Color.white);
+        AgregarProducto.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        AgregarProducto.setBackground(new Color(160, 82, 45 ));
+        AgregarProducto.setForeground(new Color(61, 43, 31 ));
+        AgregarProducto.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         AgregarProducto.setFocusPainted(false);
         AgregarProducto.addActionListener(new ActionListener() {
             @Override
@@ -328,8 +340,10 @@ public class GuiProducto extends JFrame {
 
         JButton Salir = new JButton("Salir");
         Salir.setBounds(450, 400, 150, 40);
-        Salir.setBackground(new Color(36, 186, 227));
-        Salir.setForeground(Color.white);
+        Salir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Salir.setBackground(new Color(160, 82, 45 ));
+        Salir.setForeground(new Color(61, 43, 31 ));
+        Salir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Salir.setFocusPainted(false);
         Salir.addActionListener(new ActionListener() {
             @Override
@@ -343,56 +357,56 @@ public class GuiProducto extends JFrame {
 
         // Componentes del Actualizar
         JLabel NombreNuevo = new JLabel("Nuevo Nombre");
-        NombreNuevo.setBounds(50, 180, 100, 40);
+        NombreNuevo.setBounds(150, 180, 100, 40);
         NombreNuevo.setForeground(Color.black);
         NombreNuevo.setBorder(null);
         NombreNuevo.setFont(fuente);
         PanelActualizar.add(NombreNuevo);
 
         JLabel PrecioNuevo = new JLabel("Nuevo Precio");
-        PrecioNuevo.setBounds(50, 240, 100, 40);
+        PrecioNuevo.setBounds(150, 240, 100, 40);
         PrecioNuevo.setForeground(Color.black);
         PrecioNuevo.setFont(fuente);
         PrecioNuevo.setBorder(null);
         PanelActualizar.add(PrecioNuevo);
 
         JLabel Ced = new JLabel("Id del producto");
-        Ced.setBounds(50, 120, 100, 40);
+        Ced.setBounds(150, 120, 100, 40);
         Ced.setForeground(Color.black);
         Ced.setFont(fuente);
         Ced.setBorder(null);
         PanelActualizar.add(Ced);
 
         JLabel Descri = new JLabel("Descripcion nueva");
-        Descri.setBounds(50, 300, 250, 40);
+        Descri.setBounds(150, 300, 250, 40);
         Descri.setForeground(Color.black);
         Descri.setFont(fuente);
         Descri.setBorder(null);
         PanelActualizar.add(Descri);
     
         JTextField TextNombreNuevo = new JTextField("");
-        TextNombreNuevo.setBounds(200, 180, 130, 40);
+        TextNombreNuevo.setBounds(270, 180, 130, 40);
         TextNombreNuevo.setBackground(new Color(101, 237, 225));
         TextNombreNuevo.setForeground(Color.black);
         TextNombreNuevo.setBorder(null);
         PanelActualizar.add(TextNombreNuevo);
 
         JTextField TextPrecioNuevo = new JTextField("");
-        TextPrecioNuevo.setBounds(200, 240, 130, 40);
+        TextPrecioNuevo.setBounds(270, 240, 130, 40);
         TextPrecioNuevo.setBackground(new Color(101, 237, 225));
         TextPrecioNuevo.setForeground(Color.black);
         TextPrecioNuevo.setBorder(null);
         PanelActualizar.add(TextPrecioNuevo);
 
         JTextField TextCed = new JTextField("");
-        TextCed.setBounds(200, 120, 130, 40);
+        TextCed.setBounds(270, 120, 130, 40);
         TextCed.setBackground(new Color(101, 237, 225));
         TextCed.setForeground(Color.black);
         TextCed.setBorder(null);
         PanelActualizar.add(TextCed);
 
         JTextField TextDescri = new JTextField("");
-        TextDescri.setBounds(200, 300, 130, 40);
+        TextDescri.setBounds(270, 300, 130, 40);
         TextDescri.setBackground(new Color(101, 237, 225));
         TextDescri.setForeground(Color.black);
         TextDescri.setBorder(null);
@@ -400,8 +414,10 @@ public class GuiProducto extends JFrame {
 
         JButton ActualizarProductos = new JButton("Actualizar");
         ActualizarProductos.setBounds(200, 380, 150, 40);
-        ActualizarProductos.setBackground(new Color(36, 186, 227));
-        ActualizarProductos.setForeground(Color.white);
+        ActualizarProductos.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        ActualizarProductos.setBackground(new Color(160, 82, 45 ));
+        ActualizarProductos.setForeground(new Color(61, 43, 31 ));
+        ActualizarProductos.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         ActualizarProductos.setFocusPainted(false);
         ActualizarProductos.addActionListener(new ActionListener() {
             @Override
@@ -458,8 +474,10 @@ public class GuiProducto extends JFrame {
 
         JButton SalirAc = new JButton("Salir");
         SalirAc.setBounds(450, 380, 150, 40);
-        SalirAc.setBackground(new Color(36, 186, 227));
-        SalirAc.setForeground(Color.white);
+        SalirAc.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        SalirAc.setBackground(new Color(160, 82, 45 ));
+        SalirAc.setForeground(new Color(61, 43, 31 ));
+        SalirAc.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         SalirAc.setFocusPainted(false);
         SalirAc.addActionListener(new ActionListener() {
             @Override
@@ -474,15 +492,14 @@ public class GuiProducto extends JFrame {
 
         //Componentes para eliminar
         JLabel ID = new JLabel("Id del producto a eliminar");
-        ID.setBounds(200, 200, 300, 40);
+        ID.setBounds(100, 200, 300, 40);
         ID.setForeground(Color.black);
         ID.setBorder(null);
-        Font fuene = new Font("Agency FB", Font.BOLD, 16);
-        ID.setFont(fuene);
+        ID.setFont(fuente);
         PanelEliminar.add(ID);
         
         JTextField TextId = new JTextField("");
-        TextId.setBounds(400, 200, 130, 40);
+        TextId.setBounds(300, 200, 150, 40);
         TextId.setBackground(new Color(101, 237, 225));
         TextId.setForeground(Color.black);
         TextId.setBorder(null);
@@ -490,8 +507,10 @@ public class GuiProducto extends JFrame {
 
         JButton EliminarProducto = new JButton("Eliminar");
         EliminarProducto.setBounds(200, 330, 150, 40);
-        EliminarProducto.setBackground(new Color(36, 186, 227));
-        EliminarProducto.setForeground(Color.white);
+        EliminarProducto.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        EliminarProducto.setBackground(new Color(160, 82, 45 ));
+        EliminarProducto.setForeground(new Color(61, 43, 31 ));
+        EliminarProducto.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         EliminarProducto.setFocusPainted(false);
         EliminarProducto.addActionListener(new ActionListener() {
             @Override
@@ -540,8 +559,10 @@ public class GuiProducto extends JFrame {
 
         JButton Saliir = new JButton("Salir");
         Saliir.setBounds(450, 330, 150, 40);
-        Saliir.setBackground(new Color(36, 186, 227));
-        Saliir.setForeground(Color.white);
+        Saliir.setFont(new Font("Comic Sans MS", Font.ITALIC, 18));
+        Saliir.setBackground(new Color(160, 82, 45 ));
+        Saliir.setForeground(new Color(61, 43, 31 ));
+        Saliir.setBorder(BorderFactory.createLineBorder(new Color(92, 51, 23), 2));
         Saliir.setFocusPainted(false);
         Saliir.addActionListener(new ActionListener() {
             @Override
@@ -553,13 +574,17 @@ public class GuiProducto extends JFrame {
         });
         PanelEliminar.add(Saliir);
 
+        JLabel Titulo = new JLabel("Administración de los productos");
+        Titulo.setBounds(250, 10, 400, 40);
+        Titulo.setForeground(Color.black);
+        Font fuentee = new Font("Agency FB", Font.BOLD, 30);
+        Titulo.setFont(fuentee);
+        Titulo.setBorder(null);
+        MainPanel.add(Titulo);
 
-
-        MainPanel.add(PanelArriba);
-        MainPanel.add(PanelAbajo);
         MainPanel.add(Agregar);
         MainPanel.add(Mostrar);
-
+        MainPanel.add(Regresar);
         MainPanel.add(Eliminar);
         MainPanel.add(Actualizar);
     }
