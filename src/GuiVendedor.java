@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -43,10 +42,6 @@ public class GuiVendedor extends JFrame {
         MainPanel.setLayout(null);
         MainPanel.setBackground(new Color(220, 199, 165));
 
-        LabelImagen1 = new JLabel();//
-        LabelImagen1.setBounds(0, 70, 400, 380);
-        this.Pintar(this.LabelImagen1, "Imagenes\\Fondo.png");
-        // MainPanel.add(LabelImagen1);
 
         JPanel PanelAgregar = new JPanel();
         getContentPane();
